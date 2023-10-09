@@ -8,7 +8,6 @@ import dagger.Provides
 @Module
 class PostsModule {
 
-
     @Provides
     fun providePostsRepository(apiService: ApiService, userId: Int) : PostsRepository{
         return PostsRepository(apiService, userId)
