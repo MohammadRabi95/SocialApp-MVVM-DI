@@ -6,10 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.socialapp_mvvm_di.models.Posts
 import com.example.socialapp_mvvm_di.viewmodels.repositories.PostsRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PostsViewModel (val postsRepository: PostsRepository) : ViewModel() {
+class PostsViewModel @Inject constructor(val postsRepository: PostsRepository) : ViewModel() {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

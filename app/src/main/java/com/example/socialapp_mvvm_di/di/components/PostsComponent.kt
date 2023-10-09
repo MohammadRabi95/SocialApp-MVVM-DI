@@ -1,20 +1,19 @@
 package com.example.socialapp_mvvm_di.di.components
 
-import com.example.socialapp_mvvm_di.di.modules.NetworkModule
+import com.example.socialapp_mvvm_di.di.annotations.ActivityScope
 import com.example.socialapp_mvvm_di.di.modules.PostsModule
 import com.example.socialapp_mvvm_di.views.MainActivity
 import dagger.BindsInstance
-import dagger.Component
 import dagger.Subcomponent
-import javax.inject.Singleton
 
+@ActivityScope
 @Subcomponent(modules = [PostsModule::class])
 interface PostsComponent {
 
     fun inject(mainActivity: MainActivity)
 
     @Subcomponent.Factory
-    interface MyFactory {
+    interface PostsFactory {
         fun create(@BindsInstance userId: Int) : PostsComponent
     }
 }
